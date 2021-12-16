@@ -2,9 +2,11 @@
 
 # car.rb
 class Car
-  def initialize(color)
+  def initialize(color, brand, door_open )
     @color = color
     @engine_started = false
+    @brand = brand
+    @door_open = false
   end
 
   # start is an instance method
@@ -12,19 +14,17 @@ class Car
     @engine_started = true
   end
 
+  def door_open?
+    @door_open = true
+  end
+
   def engine_started?
     @engine_started
   end
 
-  def car_color
-    @color
-  end
+  attr_accessor :color
+  attr_reader :brand, :engine_started
+  # def car_color
+  #   @color
+  # end
 end
-
-white_car = Car.new('white')
-white_car.start
-
-puts 'Is the white car started?'
-puts white_car.engine_started? ? 'Yes' : 'No'
-puts 'what color is the car?'
-puts white_car.car_color
